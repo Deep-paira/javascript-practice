@@ -1,1 +1,5 @@
- myArr.unshift(4)
+user.welcomMessage()
+// user.username = "sumit"
+// user.welcomMessage()
+
+// console.log(this);  
