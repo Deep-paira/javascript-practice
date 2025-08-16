@@ -88,7 +88,7 @@ setInterval(function () {
 }, 1000)
 ```
 
-## project 4
+## project 4 solution
 
 ```Javascript
 
@@ -190,3 +190,35 @@ function newGame() {
   });
 }
 ```
+
+## project 6 solution
+
+```Javascript
+// generate random colors
+
+const randomColor = function (){
+  const hex = "123456789ABCDEF"
+  let color = '#'
+  for (let i = 0; i < 6; i++){
+    color +=  hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
+let intervalId
+const startChangingColor = function (){
+
+  intervalId = setInterval(changeBgcolor,300)
+  function changeBgcolor (){
+    document.body.style.backgroundColor = randomColor()
+  }
+};
+
+const stopChangingColor = function (){
+  clearInterval(intervalId);
+};
+
+document.querySelector('#start').addEventListener('click', startChangingColor)
+document.querySelector('#stop').addEventListener('click', stopChangingColor)
+```
+
