@@ -191,9 +191,37 @@ function newGame() {
 }
 ```
 
+## project 5 solution
+
+```Javascript
+const insert = document.getElementById('insert')
+
+window.addEventListener('keydown', (e) => {
+  insert.innerHTML = `
+  <div class='color'>
+    <table>
+      <tr>
+      <th>key</th>
+      <th>keycode</th>
+      <th>code</th>
+      </tr>
+
+      <tr>
+      <td>${e.key === ' ' ? 'Space' : e.key}</td>
+      <td>${e.keyCode}</td>
+      <td>${e.code}</td>
+      </tr>
+    </table>
+  </div>
+  `
+})
+```
+
 ## project 6 solution
 
 ```Javascript
+// generate random colors
+
 // generate random colors
 
 const randomColor = function (){
@@ -207,8 +235,10 @@ const randomColor = function (){
 
 let intervalId
 const startChangingColor = function (){
+  if (!intervalId) {
+    intervalId = setInterval(changeBgcolor,300)
+  }
 
-  intervalId = setInterval(changeBgcolor,300)
   function changeBgcolor (){
     document.body.style.backgroundColor = randomColor()
   }
@@ -216,6 +246,7 @@ const startChangingColor = function (){
 
 const stopChangingColor = function (){
   clearInterval(intervalId);
+  intervalId = null;
 };
 
 document.querySelector('#start').addEventListener('click', startChangingColor)
